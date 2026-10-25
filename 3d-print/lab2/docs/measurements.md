@@ -244,3 +244,51 @@ Kõigi kolme hoidikutüübi kohta kinnitas kasutaja: detail läheb vastavasse pe
 Komponentide kokkulepitud lähteväärtused jäävad ülaloleva Maksimi registri järgi: AtomS3 `nominal`, aku `measured`, klaas `confirmed`; uusi komponendi nihikunäite ega varasemate mõõtmiste kuupäevi ei lisata. Olemasolevate `.f3d` ja `.stl` failide kontroll ning digitaalsed pesamõõdud on [`CAD-ülevaate 24.10 täiendusena`](cad-measurement-review.md). **CAD dimensions**, **Physical fit confirmed** ja **Physical pocket dimensions** on eraldi tõendid: CAD-arvud ei täida siinse tabeli puuduvaid füüsilisi mõõte.
 
 Kui hiljem leitakse vale mõõt, ära kustuta seda. Lisa kuupäevaga parandus vana väärtuse alla ning selgita mõõtekonteksti.
+
+## Taastatud tekst — 25.10.2026
+
+- 25.10.26 parandus (Raimo otsus): Denysi 25.10.2026 kommitid `b66a58f`, `f37e300` eemaldasid või asendasid allolevad read. Kursuse reegli „Midagi ei kustutata“ järgi on need siin sõna-sõnalt tagasi; ülal olev praegune tekst jääb kehtima ja on uuem. Vanad failid, millele read viitavad, on samuti taastatud.
+
+### Kommitist `b66a58f` eemaldatud read
+
+*Asukoht: rea „## Gridfinity kalibreerimine“ järel.*
+
+### Esimene kalibreerimisprint
+
+*Asukoht: rea „### Kalibreerimiskast“ järel.*
+
+| Väli | Tulemus | Märkus |
+|---|---|---|
+| Kandidaatversioon | TODO — waiting for physical test | Näiteks `gridfinity-calibration-v2.scad`; kirja panna päriselt prinditud versioon. |
+| Sobitusparandus külje kohta (mm) | TODO — waiting for physical test | CAD-i `fit_adjustment`; täislaiuse muutus on sellest kaks korda suurem. |
+| Istub täielikult põhja | TODO — waiting for physical test | |
+| Loks | TODO — waiting for physical test | |
+| Eemaldamiseks vajalik jõud / pingutus | TODO — waiting for physical test | Kui mõõdad jõudu, kirjuta ühik N. |
+| Vajalikud muudatused | TODO — waiting for physical test | Uue prindi korral salvesta eraldi versioon. |
+
+*Asukoht: rea „- Ruut B-2 osutus liiga lähedaseks: raadiusel ~192 mm J1-st jõuab käsi ainult Z ≈ −98-ni (…“ järel.*
+
+- Kalibreerimiskast `gridfinity-calibration-v1` (STL-ist): välismõõt 41,2 × 41,2 × 20 mm, sisemus **37,2 × 37,2 mm**, teravad sisenurgad, põhi 4 mm, sisemuse sügavus 16 mm.
+
+*Asukoht: rea „- Täpsustamiseks: korrata nurkade mõõtmist puutes (kasti põhjas, Z ≈ −155) 3–4 ruudus, ees…“ järel.*
+
+24.10.26 õhtu — kontroll kalibreerimiskastiga v3 ruudus C-2 (toorandmed [`calibration_c-2_v3.csv`](calibration_c-2_v3.csv)):
+
+*Asukoht: rea „24.10.26 õhtu — kontroll kalibreerimiskastiga ruudus C-2 (toorandmed [`calibration_c-2.csv…“ järel.*
+
+- Kast `gridfinity-calibration-v3` (standardne Gridfinity jalg, pesa 37 × 37 mm, rist põhjas) ruudus **C-2**; C-2 ei olnud `cells.py` sobituses, seega see on sõltumatu kontroll. R 33, kiirus 2 %, sammud 0,5 mm; puudutust hindas Denys silmaga (napp sirge ja seina vastas, kast ei kaldu).
+
+*Asukoht: rea „- Keskpunkt (nelja nurga keskmine): **253,81 / 68,46**; `cells.py` ennustas 253,68 / 66,46…“ järel.*
+
+- Napa käik 37 mm pesas 14 mm → napa efektiivne läbimõõt sellel kõrgusel **≈ 23 mm** (23.10 v1 kastiga ≈ 22; kaksik eeldab 20).
+- Tähelepanek: sama +2 mm Y-suunas õpetati 24.10 klaasi sisendhoidikus D-4 (`teach.dy 2.0`, slot picker). Võimalik põhjus: `cells.py` sobituse D-2 punkt võeti vanade jalgadega klaasihoidikus (jala lõtk ~0,95 mm külje kohta), uus v3 kast istub lõtkuta. Otsus `cells.py` uue sobituse kohta: TODO — meeskond.
+
+*Asukoht: rea „- Kasti välja/tagasi kordustäpsust ei mõõdetud (Denys: keskpunkt sobib, uuesti ei kalibree…“ järel.*
+
+- Samal õhtul (Denys: „поменяй“): C-2 lisati `cells.py` sobitusse (4 ruutu, pööre **+0,61°**). Jääkvead G-1 −1,88/+0,45, E+3 +0,76/−1,35, D-2 +1,26/−0,27, C-2 −0,14/+1,16 mm — jäik sobitus ei mahu 1 mm sisse, nõrgimad on G-1 ja E+3 (silma järgi Z −87, parallaks) ning D-2 (vanade jalgadega hoidik). Täpsustamiseks: 2–3 ruutu (nt E+3, F-3) kastiga v3 puutes ja uus sobitus ainult nende põhjal.
+
+### Kommitist `f37e300` eemaldatud read
+
+*Asukoht: rea „24.10.26 õhtu — töökoha õpetamine (paigutus B, oranž hoidik C±1):“ järel.*
+
+- C+1 pesas akumoodul + AtomS3 (ekraan üles) + klaas peal (Denys). Napp R 33, kiirus 5 %, XIAO kaamera v5 kinnitusel kontrolliks.

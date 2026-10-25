@@ -48,3 +48,27 @@ Eraldi kummist iminapa D41 ja H1 on nüüd nihikuga mõõdetud (`measured`), kui
 3. Vali **Inspect → Measure**, mõõda vastasseinad, põrand–serv, faasid ja nurgad kõigis neljas pesas ning kontrolli vastavust ülalolevale STL-ile. Kasuta **Inspect → Section Analysis** istumissügavuse ja klaasi üleulatuse kontrolliks.
 4. Lisa eraldi kontrollkomponendina 30 × 30 × 2 mm klaasi ümbris ning mõõdetud või selgelt nimimõõduga komponendid. Paiguta need kavandatud asenditesse; kasuta **Inspect → Interference**. Kontrolli eraldi lubatud klaasipöördeid ja kogu transporditeed; ühe staatilise asendi nullinterferents ei kinnita trajektoori.
 5. Kui klaas nurka ei mahu, lõtk ei sobi või sein jääb haardeteele, pane kirja konkreetne vastuolu ja parameetrimuutus. Alles kontrolli järel loo uus versioon **File → Save As**; ära kirjuta prinditud iteratsiooni üle. Ekspordi uue versiooni STL ning salvesta vastav PrusaSliceri 3MF. Praeguses sessioonis ei muudetud geomeetriat ega loodud printi.
+
+## Taastatud tekst — 25.10.2026
+
+- 25.10.26 parandus (Raimo otsus): Denysi 25.10.2026 kommitid `8107cc9`, `f37e300` eemaldasid või asendasid allolevad read. Kursuse reegli „Midagi ei kustutata“ järgi on need siin sõna-sõnalt tagasi; ülal olev praegune tekst jääb kehtima ja on uuem. Vanad failid, millele read viitavad, on samuti taastatud.
+
+### Kommitist `8107cc9` eemaldatud read
+
+*Asukoht: rea „|---|---|---|“ järel.*
+
+| `glass-input-holder/stl/glass-input-holder-v1.stl` ja `glass-input-holder-v2.stl` | Mõlemad väljast 83,2 × 83,2 mm. Klaasipesade sirgseinad X/Y = −36,3 / −5,7 ja +5,7 / +36,3 mm: vahe 30,6 mm, keskmed ±21 mm. Pesa põhi kohalikul Z = 4 mm, ülaserv Z = 5,5 mm. V1 Z = −7,65…5,5 mm, v2 Z = −4,65…5,5 mm. | Need pole 24 mm klaasipesad. 30 mm klaasi arvutuslik täislaiuse varu 0,6 mm ehk 0,3 mm külje kohta; füüsilist lõtku pole mõõdetud. 2 mm klaas ulatuks nimetatud põrandast 0,5 mm ülaservast kõrgemale. Kontrollida nurkade kuju, sissejuhtimist, klaasi tegelikku suurust, kõiki nelja pesa ja iminapa ligipääsu. V1 jala varasem sobimatus jääb ajalukku; v2 jala parandamine ei tõenda klaasipesa sobivust. V2 3MF puudub. |
+
+*Asukoht: rea „Eelnev tabel ja allpool olevad kontrollülesanded kirjeldavad 23.10 ülevaadet. **24.10 täie…“ järel.*
+
+Kontrollitud repo seisus `36d6bc5` olemasolevaid lähtefaile `ready-parts-input-holder/src/ready-parts-input-holder-v1.f3d`, `atoms3-input-holder/src/atoms3-input-holder-v1.f3d` ning `glass-input-holder/src/glass-input-holder-v1.f3d` ja `glass-input-holder-v2.f3d`: failid ja Fusioni arhiivikirjed on olemas. Kasutatud ZIP-lugeja ei toeta nende Zstandard-pakkimist (meetod 93), seega Fusioni parameetrite, lähtegeomeetria ja STL-iga vastavuse täielikku kontrolli ei kinnitata. Uusi mudeleid ei loodud ja olemasolevaid faile ei muudetud.
+
+*Asukoht: rea „| `atoms3-input-holder-v1.stl` | 24,6 × 24,6 mm | 3 / 11 mm | 8 mm |“ järel.*
+
+| `glass-input-holder-v1.stl`, `glass-input-holder-v2.stl` | 30,6 × 30,6 mm | 4 / 5,5 mm | 1,5 mm |
+
+### Kommitist `f37e300` eemaldatud read
+
+*Asukoht: rea „| `atoms3-input-holder` | AtomS3 füüsilised gabariidid endiselt mõõtmata; Exceli 24 × 24 ×…“ järel.*
+
+| `camera-mounts/.../xiao-square-mount-v2` | XIAO põhiplaat 17,74 × 21,33 × 1,21 mm (`measured`); kaameralaiendus, objektiivi asukoht ja antenni vaba ala puuduvad. | Võrrelda põhiplaadi renne mõõduga, jättes komponentidele ja USB-C-le ruumi. 1,21 mm on põhiplaadi mõõt, mitte kaamerakoostu kogukõrgus. Ligikaudne 90° alla on `planned`. Uus kaamerapesa vajab kaameraplaadi mõõtmisi; olemasolev pilt ei tõenda 30 × 30 mm klaasi täielikku nähtavust. |

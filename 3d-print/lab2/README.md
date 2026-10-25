@@ -191,8 +191,15 @@ Kõigi nende olek on `TODO — waiting for physical test`.
 - `ready-parts-input-holder/src/ready-parts-input-holder-v1.f3d`, `ready-parts-input-holder/stl/ready-parts-input-holder-v1.stl`, `ready-parts-input-holder/3mf/ready-parts-input-holder-v1.3mf` - ReadyParts sisendhoidiku Fusioni fail ja ekspordid; mõõtude ning füüsilise sobivuse kinnitus: `TODO — waiting for physical test`.
 - `atoms3-input-holder/src|stl|3mf/atoms3-input-holder-v2.*` - AtomS3 sisendhoidik v2: standardne Gridfinity jalg (nagu klaasi hoidikul), välismõõt 83,5 mm, sõrmepilud; PrusaSlicer 53 min. Printimata. Kaksik kasutab seda.
 - `ready-parts-input-holder/src|stl|3mf/ready-parts-input-holder-v2.*` - oranž töökoha hoidik v2: standardne Gridfinity jalg, 83,5 mm, sõrmepilud; PrusaSlicer 1 h 33 min. Prindib. Kaksik kasutab seda; pesa põhi on 3,06 mm madalam kui v1-l → töökoha Z tuleb pärast vahetust uuesti õpetada (kaksik: place −120,9 vs v1 õpetus −119,0).
+  - 25.10.26 märkus (Raimo): laual on kasutusel `ready-parts-input-holder-v1`; v2 jääb Denysi tööfailiks `fusion-tutor/people/Dennel04/models/`-is. Siinsed v2 failid (kommit `8f79bc1`) jäävad alles, kuid ring 1 õpetus (töökoht Z −119,0) kehtib v1-le. Kui v2 laual v1 asemele pannakse, tuleb see kirja panna ja töökoha Z uuesti õpetada.
 - `glass-input-holder/src/glass-input-holder.f3d`, `glass-input-holder/stl/glass-input-holder.stl`, `glass-input-holder/3mf/glass-input-holder.3mf` - klaasi sisendhoidik 2 × 2: neli pesa 30,6 × 30,6 mm (30 mm klaas + 0,3 mm külje kohta), sügavus 1,5 mm, keskmed ±21 mm; välismõõt 83,5 × 83,5 mm (`42 × 2 − 0,5`); **standardne Gridfinity jalg** nagu kalibreerimiskastil (generaatori `BASE_PROFILE`, 4,75 mm). Kõrgus jalaga 10,25 mm. Print: Prusa CORE One HF0.4, `0.20mm SPEED`, Prusament PLA, jalad all, ilma tugedeta, 42 min, 28,2 g. Prinditud ja kontrollitud 25.10.26: istub ruudustikus täpselt.
 - `valjundhoidik`: jalg 35,78 mm (R 1,5 mm, 0,5 mm faas all), v1 failid üle kirjutatud, printimata.
+  - 25.10.26 parandus: „printimata“ on 23.10.26 seis; `valjundhoidik-v1` prinditi 24.10.26 ja kasutati ringis 1 ([`docs/refit_test.csv`](docs/refit_test.csv)).
+- 25.10.26 märkus (taastatud failid, Raimo otsus): kommitites `8107cc9`, `b66a58f`, `f37e300`, `b13f5c1` eemaldatud või üle kirjutatud failid on vanade nimedega tagasi (baitide kaupa samad mis enne neid kommiteid). Üle kirjutatud faili vana sisu on nimega `<nimi>-enne-<kommit>`. Uued nimed jäävad. Mis on mis:
+  - `glass-input-holder.*` = `glass-input-holder-v3.*` (samad baidid; prinditud 25.10.26). `-v1.*` = Maksimi 23.10.26 versioon; `-v2.*` = 23.10.26 jala parandus (3MF-i polnud).
+  - `gridfinity-calibration.*` = `gridfinity-calibration-v3.*` (samad baidid; kasutusel C−2 kalibreerimisel). `-v1.*` = Maksimi 23.10.26 versioon. OpenSCADi prototüübid: `src/gridfinity-calibration-v1.scad`, `src/gridfinity-calibration-v2.scad`. C−2 algsed toorandmed: [`docs/calibration_c-2_v3.csv`](docs/calibration_c-2_v3.csv) (taastatud). [`docs/calibration_c-2.csv`](docs/calibration_c-2.csv) on sama arvudega koopia; erinevus on ainult hoidiku nimes (`gridfinity-calibration-v3` → `gridfinity-calibration`, kommit `b66a58f`).
+  - `xiao-square-mount-v1.*` = vana `xiao-square-mount-v2` (samad baidid, ka `-v2-enne-f37e300.*`); `xiao-square-mount-v2.*` = vana `xiao-square-mount-v5` (samad baidid). `-v3`, `-v4` ja `*-standalone.f3d` on vahepealsed versioonid. Fotod: vanad `xiao-square-mount-v2-*.jpg`, `-v4-*.png`, `-v5-*.png` on tagasi.
+  - Veebikaamera post: `veebikaamera-post-v1.f3d` ja `-v1-nurk.stl` = vana `-v4` (samad baidid). Algne Gridfinity-jalaga prototüüp v1: `src/veebikaamera-post-v1-enne-b13f5c1.f3d`, `stl/veebikaamera-post-v1-alumine.stl`, `stl/veebikaamera-post-v1-ulemine.stl`. Vana Gridfinity-post v2: `src/veebikaamera-post-v2.f3d`, `-v2-standalone.f3d`, `stl/veebikaamera-post-v2-alumine.stl`, `stl/veebikaamera-post-v2-ulemine-enne-b13f5c1.stl` — **ei ole sama** mis praegune toruotsa `veebikaamera-post-v2-ulemine.*` (Denys 25.10.26). v3 (Gridfinity jalg) ja v4 (`-v4.f3d`, `-v4-ulemine.stl`) ning renderid `docs/photos/veebikaamera-post-v1…v4-*.png`, `lab2-tooala-v3-*.png` on tagasi.
 
 Need lähtefailid ei ole veel füüsiliselt sobivaks kinnitatud. Iga print vajab PrusaSlicerist eksporditud STL-i ja 3MF-i, uue versiooninime ning mõõtmistulemuste dokumenteerimist.
 
@@ -405,3 +412,271 @@ mitte ei muudeta.
 * Mida me teeksime teisiti: TODO — complete after physical fit and refit tests.
 * Mida järgmine labor peaks enne alustamist teadma: TODO — complete after the
   holders, camera mounts and robot target points are physically verified.
+
+## Taastatud tekst — 25.10.2026
+
+- 25.10.26 parandus (Raimo otsus): Denysi 25.10.2026 kommitid `8107cc9`, `b66a58f`, `f37e300`, `b13f5c1` eemaldasid või asendasid allolevad read. Kursuse reegli „Midagi ei kustutata“ järgi on need siin sõna-sõnalt tagasi; ülal olev praegune tekst jääb kehtima ja on uuem. Vanad failid, millele read viitavad, on samuti taastatud.
+
+### Kommitist `8107cc9` eemaldatud read
+
+*Asukoht: rea „- [ ] Kolm sisendhoidikut, igaühes vähemalt neli mõõdetud pesa.“ järel.*
+
+  - 23.10.26 prinditud: klaas (`glass-input-holder-v1`, 2 × 2, 4 pesa), AtomS3 (`atoms3-input-holder-v1`, 2 × 2, 4 pesa), akumoodul (`ready-parts-input-holder-v1`, 2 × 2, 4 pesa). Pesade mõõdud nihikuga: TODO.
+
+*Asukoht: rea „- 23.10.26 parandus (meeskonna otsus, lihtsustus): praak läheb samuti oranži `ready-parts-…“ järel.*
+
+  - 23.10.26: heade väljund modelleeritud — `valjundhoidik/src/valjundhoidik-v1.f3d`, `valjundhoidik/stl/valjundhoidik-v1.stl`. Alus on `glass-input-holder-v1` (sama 2 × 2 välismõõt 83,2 × 83,2 mm ja Gridfinity jalad); nelja pesa ja vaheseinte asemel üks lahtine kast. Uued parameetrid: põhi `out_floor_thickness = 2,5 mm`, õõne sügavus `out_cavity_depth = 14 mm`, sein `out_wall_thickness = 2,5 mm`, sisenurga raadius `4 mm`, sissejuhtiv faas ülaservas `out_lead_in = 2 mm`. Kõrgus ilma jalata 16,5 mm, jalaga 24,15 mm (alla 60 mm piiri). Sisemus ~78 × 78 mm, 4 klaasi mahuvad kõrvuti. 3MF ja füüsiline kontroll: TODO.
+
+*Asukoht: rea „- `ready-parts-input-holder/src/ready-parts-input-holder-v1.f3d`, `ready-parts-input-holde…“ järel.*
+
+- `glass-input-holder/src/glass-input-holder-v1.f3d`, `glass-input-holder/stl/glass-input-holder-v1.stl`, `glass-input-holder/3mf/glass-input-holder-v1.3mf` - klaasi sisendhoidiku Fusioni fail ja ekspordid; mõõtude ning füüsilise sobivuse kinnitus: `TODO — waiting for physical test`.
+- `glass-input-holder/src/glass-input-holder-v2.f3d`, `glass-input-holder/stl/glass-input-holder-v2.stl` - 23.10.26: v1 jalad ei läinud ruudustikku päris lõpuni. Põhjus (mõõdetud Fusionis `MG 400 rakis`, `grid_pos_0`): pesa kitsaim koht on 36,28 mm, nurga raadius **1,14 mm** (z +2,63). v1 jalg 35,98 mm nurgaraadiusega 0,5 mm ulatus diagonaalis 0,05 mm pesast välja, nurgad kiilusid; külgvahe oli ainult 0,15 mm. Lisaks pikendas `Extrude18` jalga 3 mm (kuni z −0,37), see jõuab ±3 ja ±1 ruutude all olevate talade vastu (talade ülaserv z +2,48). v2: `foot_clearance = 0,25 mm` külje kohta (jalg 35,78 mm), `foot_corner_radius = 1,5 mm` (nurga vahe 0,5 mm), 0,5 mm faas jala alumisel serval (sissejuhtimine ja esimese kihi laiendus), `Extrude18` välja lülitatud. Pesad muutmata. 3MF ja füüsiline kontroll: TODO.
+- `valjundhoidik` sai samad jala parandused (v1, printimata, failid üle kirjutatud).
+- `glass-input-holder/src/glass-input-holder-v3.f3d`, `glass-input-holder/stl/glass-input-holder-v3.stl`, `glass-input-holder/3mf/glass-input-holder-v3.3mf` - 25.10.26: **standardne Gridfinity jalg** nagu kalibreerimiskastil (generaatori `BASE_PROFILE`: 45° 0,8 / 1,8 / 45° 2,15 mm = 4,75 mm, 35,6 → 37,2 → 41,5 mm, `gf_fit_adjust = 0`; v2 sirged jalad maha surutud) ja **standardne välismõõt 83,5 × 83,5 mm** (`42 × 2 − 0,5`; v2-s lahutati lisaks `grid_clearance` → 83,2). V2 välisprofiili visand ei olnud keskele seotud; nüüd on keskpunkt nullpunktis, jalad ja pesad ±21 mm. Pesad muutmata (30,6 × 30,6 mm, sügavus 1,5 mm). Kõrgus jalaga 10,25 mm. Print: Prusa CORE One HF0.4, `0.20mm SPEED`, Prusament PLA, jalad all, ilma tugedeta, 42 min, 28,2 g. Printimata; füüsiline sobivus: `TODO — waiting for physical test`.
+
+*Asukoht: rea „* Järgmiseks: puuduvad pesade arvulised mõõdud, tööriista tegelik kaalumine enne/pärast ka…“ järel.*
+
+**25.10.2026 — Dennel04 (Denys) koos Claude'iga: klaasi sisendhoidik v3 standardse jalaga**
+* Tegime: `glass-input-holder-v2` Fusionis → v3: v2 sirged jalad maha surutud, lisatud standardne Gridfinity jalg samast skriptist mis kalibreerimiskastil (`fusion-tutor/shared/tools/fusion-geometry/gf_std_foot.py`); välismõõt standardseks; välisprofiil keskele seotud.
+* Mõõtmised ja tulemused (CAD): välismõõt 83,50 × 83,50 mm (v2 83,2); jala poollaius lahtri keskelt z järgi 17,85 / 18,60 / 20,70 mm (= generaatori profiil); kõrgus 5,5 + 4,75 mm; maht 59,45 cm³. Viilutus: 42 min, 28,2 g, tugesid pole vaja. Nihikumõõte ei ole.
+* Otsused ja põhjendused: kalibreerimiskast standardse jalaga istub ruudustikus ega loksu (24.10), seega sama jalg läheb nüüd ka klaasihoidikule; 2 × 2 hoidik toetub ruudustiku harjadele, külglõtk 0,24 mm (`fusion-tutor/shared/knowledge/gridfinity-socket.md`).
+* Failid ja versioonid: `glass-input-holder/src|stl|3mf/glass-input-holder-v3.*`; v1 ja v2 alles.
+* Järgmiseks: printida v3, kontrollida istumist ja loksu ruutudes D/E −4/−5, panna 4 klaasi pesadesse; pärast ümberpanekut kontrollida klaasi sisendi õpetatud punkti (pick −152).
+
+### Kommitist `b66a58f` eemaldatud read
+
+*Asukoht: rea „- [x] 1 x 1 Gridfinity kalibreerimishoidik testitud ruudustikus ja robotiga.“ järel.*
+
+  - 24.10.26: `gridfinity-calibration-v3` (standardne jalg, rist) istub ruudustikus hästi; robotiga ruudus C−2: Z puudutus põhjal −155,0, neli sisenurka → keskpunkt 253,81 / 68,46, Denys seadis napa risti keskele 253,94 / 68,30 (kasutusel `calibration/cells.py`). Andmed: [`docs/calibration_c-2_v3.csv`](docs/calibration_c-2_v3.csv), [`docs/measurements.md`](docs/measurements.md). Kasti välja/tagasi kordustäpsust ei mõõdetud.
+
+*Asukoht: rea „- 23.10.26 otsus: `ready-parts-input-holder-v1` (2 × 2) on korraga akumooduli sisend ja tö…“ järel.*
+
+  - 23.10.26 otsus: praak = `gridfinity-calibration-v1` (1 × 1 lahtine kast) pärast kalibreerimist. CAD-ist: välismõõt 41,2 × 41,2 mm, kõrgus 20 mm, sisemus ~37,2 × 37,2 mm, sügavus 16 mm. Klaas ja AtomS3 on 24 × 24 mm, varu ~6,6 mm igale poole; kõrgus jääb alla 60 mm piiri. Ülesanne praagi suurust ega pesasid ei nõua ("võib olla lihtsalt kast"). Füüsiline kontroll: TODO.
+  - 23.10.26 mõõduparandus eelnevale kirjele: meie klaas on **30 × 30 × 2 mm**, mitte 24 × 24 × 2 mm (Maksimi Excel, `Measurements!D8:E19`, meeskonna kinnitus). Kirjeldatud 37,2 mm sirgete siseseinte vahe korral on keskse klaasi teoreetiline külgvaru `(37,2 − 30) / 2 = 3,6 mm`, mitte 6,6 mm. See ei ole sobivuskatse; kalibreerimiskast ei ole praagi praegune sihtkoht.
+
+*Asukoht: rea „- Heade väljund (4 klaasi, suuremate kaldservadega): TODO — modelleerimata.“ järel.*
+
+  - 23.10.26 parandus (meeskonna otsus, lihtsustus): praak läheb samuti oranži `ready-parts-input-holder-v1` hoidikusse; `gridfinity-calibration-v1` jääb ainult kalibreerimiseks.
+
+*Asukoht: rea „- 24.10.26 Gridfinity jalad ümber tehtud (enne printimist). Denys: `valjundhoidik-v1` liig…“ järel.*
+
+    - 24.10.26 parandus samal päeval: ülesanne nõuab **standardset** Gridfinity jalga (4,75 mm, „võta generaatorist, ära joonista silma järgi“). Võrdlus generaatoriga gridfinity-rebuilt-openscad (`BASE_PROFILE`: 45° 0,8 / 1,8 / 45° 2,15 mm, 35,6 → 37,2 → 41,5 mm, R 0,8 → 1,6 → 3,75): meie „pesa − 0,25“ jalg erines (alumine faas 0,7, kõrgus 4,65). Posti jalad on nüüd standardsed (`gf_std_foot1–3`, `gf_fit_adjust = 0`; eelmised `gf_foot_step*` maha surutud). 2 × 2 alus toetub oma sisemistele harjadele (z 7,28), külglõtk 0,24 mm nagu standardis; interferents ruudustikuga 0. Jala test = kalibreerimishoidik v3 (`gridfinity-calibration-v3`, vt CAD-failid).
+
+*Asukoht: rea „## CAD-failid“ järel.*
+
+- `src/gridfinity-calibration-v1.scad` - varasem lihtsustatud jalaga prototüüp; seda versiooni ei tohi printida.
+- `src/gridfinity-calibration-v2.scad` - kandidaat esimeseks füüsiliseks 1 × 1 kalibreerimisprindiks. Jalg järgib dokumenteeritud Gridfinity profiili; ülapinnal on keskpunkti tähistav rist. Füüsiline sobivus: `TODO — waiting for physical test`.
+
+*Asukoht: rea „![xiao-square-mount-v5 PrusaSliceris](docs/photos/xiao-square-mount-v5-slicer.png)“ järel.*
+
+- `gridfinity-calibration/src/gridfinity-calibration-v1.f3d`, `gridfinity-calibration/stl/gridfinity-calibration-v1.stl`, `gridfinity-calibration/3mf/gridfinity-calibration-v1.3mf` - lisatud 1 × 1 Gridfinity kalibreerimishoidiku Fusioni fail ja ekspordid; füüsiline sobivus ja roboti kalibreerimine: `TODO — waiting for physical test`.
+- `gridfinity-calibration/src/gridfinity-calibration-v3.f3d`, `gridfinity-calibration/stl/gridfinity-calibration-v3.stl`, `gridfinity-calibration/3mf/gridfinity-calibration-v3.3mf` - 24.10.26 (Claude Fusioni API kaudu; nimi v3, sest `src/gridfinity-calibration-v2.scad` on OpenSCADi kandidaat). 1 × 1, välismõõt 41,5 × 41,5 mm, R 3,75, kõrgus 21 mm (3 × 7), **standardne Gridfinity jalg** (generaatori `BASE_PROFILE`, `gf_fit_adjust = 0`), põhi 7 mm kõrgusel, sisetasku 37 × 37 mm (R 0,5, sügavus 14) nelja sisenurga meetodiks (napa efektiivne läbimõõt ~22 mm → käik ~15 mm), põhjas keskrist 1 × 35 mm, 0,6 mm sügav (ülesanne: „keskel terav tipp või rist“; tipp segaks nappi nurkades, risti näeb ka XIAO kaamera). Kontroll Fusionis ruudus B-2 (`MG 400 rakis`): jalg toetub pesa kaldservadele (profiilid paralleelsed, horisontaalne vahe 0,24 mm), 0,05 mm külgnihe annab juba interferentsi → teoreetiline külglõtk 0; nominaalne ülaserv **16,0 mm** ruudustiku pinnast (füüsiline kontroll: kõrgem = jalg prindib laiemaks). Print: Prusa CORE One HF0.4, `0.20mm SPEED`, Prusament PLA, ilma tugedeta, 21 min, 11,2 g. Füüsiline sobivus: TODO — waiting for physical test.
+
+*Asukoht: rea „- `gridfinity-calibration/src/gridfinity-calibration.f3d`, `gridfinity-calibration/stl/gri…“ järel.*
+
+  ![gridfinity-calibration-v3 ruudus B-2](docs/photos/gridfinity-calibration-v3-ruudustikus.png)
+
+*Asukoht: rea „![gridfinity-calibration ruudustikus](docs/photos/gridfinity-calibration-ruudustikus.png)“ järel.*
+
+  ![gridfinity-calibration-v3 standardne jalg](docs/photos/gridfinity-calibration-v3-jalg.png)
+
+*Asukoht: rea „* Failid: (valikuline lisainfo)“ järel.*
+
+**03.10.26 — Codex; meeskonnaliikmete kohalolek teadmata**
+- Tegime: kontrollisime Gridfinity jala profiili ametliku lauakirjelduse ja avatud lähtekoodiga generaatori vastu; koostasime kalibreerimishoidiku v2 keskristiga ning märkisime v1 tray lihtsustatud jala aegunuks.
+- Probleem: v1 jalg oli ühe koonusega ega sisaldanud standardset vertikaalset lõiku ega kahte eraldi kaldserva.
+- Mõõtmised ja tulemused koos ühikutega: füüsilisi mõõtmisi ega katseid ei tehtud. V2 nominaalprofiil on `0,8 mm + 1,8 mm + 2,15 mm = 4,75 mm`; esialgne `fit_adjustment = 0 mm` külje kohta. Füüsiline sobivus: `TODO — waiting for physical test`.
+- Oodatav tulemus: keskristi abil saab määrata ruudu keskpunkti ja füüsiline print näitab jala tegelikku sobivust. Tegelik tulemus: `TODO — waiting for physical test`.
+- Otsused ja põhjendused: säilitasime v1 failid ajaloo jaoks; v2 eraldab nominaalprofiili printeri sobitusparandusest. Tray jalga ei kasutata enne füüsilist sobivuskatset.
+- Failid ja versioonid: `src/gridfinity-calibration-v2.scad`, `src/gridfinity-tray-v1.scad`, `docs/measurements.md`, `README.md`.
+- Järgmiseks: kontrollida v2 OpenSCADis, seejärel printida eraldi füüsiline kandidaat ja dokumenteerida sobivus, loks ning eemaldamisjõud.
+
+> Märkus: selles ajaloolises kirjes nimetatud AI oli kasutatud tööriist, mitte füüsiliselt kohal olnud meeskonnaliige. Algset päevikukirjet ei muudeta tagantjärele.
+
+
+*Asukoht: rea „**23.10.26 õhtu — Dennel04 (Denys) koos Claude'iga — kalibreerimine**“ järel.*
+
+* Tegime: alustasime nelja sisenurga kalibreerimist musta 1 × 1 kastiga (`gridfinity-calibration-v1`). Robotit juhiti `mg400-base` serveri kaudu (2 % kiirus, 0,5 mm sammud, abiskript `calibration/jog.py`) ja osaliselt DobotStudio Pro-st.
+
+*Asukoht: rea „* Kuus kaabliklambrit oli liiga palju (Denys) → üks klamber tüki kohta. Koostevaade kõigi …“ järel.*
+
+* Gridfinity pesa mõõdeti täpselt (B-Rep pinnad: tasapinnad, koonused, silindrid) ja posti jalad tehti pesa profiili järgi (lõtk 0,25 mm); sama päeva parandus: jalg standardseks (generaator), test = kalibreerimishoidik v3. Teadmine ja tööriistad meeskonnale: `fusion-tutor/shared/knowledge/gridfinity-socket.md`, `fusion-tutor/shared/tools/fusion-geometry/`. Teised hoidikud (väljund, klaas, AtomS3, oranž, kalibreerimiskast) kasutavad veel sirget jalga — uued versioonid pärast jala testi.
+* Kalibreerimishoidik v3: standardne Gridfinity jalg (generaator + mõõdetud pesa), keskrist, 4 nurga tasku; posti jalad samuti standardseks.
+
+*Asukoht: rea „* Kontroll päris andmetega: G-1 liigesepiir −135,8 vs päris −138; B-2 J3 piir −99 vs −98; …“ järel.*
+
+* Tulemused: B-2 ei sobi kalibreerimiseks (napp ei mahu kasti v3) → C-2; klaasitsükkel kokkupõrgeteta; väljund talub ainult 3 mm kalibreerimisviga. Üksikasjad ja piirid: [`../sim/README.md`](../sim/README.md). Kaksik viidi samal päeval labori kaustast välja `3d-print/sim/`-i (Denys: see on kõigi laborite jaoks); Lab 2 tulemused jäävad `docs/`-i.
+
+*Asukoht: rea „* XIAO kaamerakinnitus v5: esimene testprint käivitatud (Nikita).“ järel.*
+
+**24.10.2026 õhtu — kalibreerimiskast v3 päris robotiga, ruut C-2**
+
+*Asukoht: rea „* Osalejad: Denys laboris (paigaldas kasti, hindas puudutusi), Claude juhtis robotit (2 %,…“ järel.*
+
+* Kast v3 (rist põhjas, standardne jalg) prinditi ja sobib hästi. Z puudutus põhjal −155,0 (kaksik −154,8). Neli sisenurka → keskpunkt 253,81 / 68,46, `cells.py` viga +0,12 / +2,00 mm; mõõdetud keskpunktis on napp risti kohal. Napa efektiivne läbimõõt ≈ 23 mm. Andmed: [`docs/calibration_c-2_v3.csv`](docs/calibration_c-2_v3.csv), [`docs/measurements.md`](docs/measurements.md).
+
+*Asukoht: rea „* Slot picker: kiiruse valik lehel; liikumiskõrgus −90, hover kuni −110; käeulatuse ja tee…“ järel.*
+
+* Kalibreerimine: C−2 kast v3 (Denys keskele 253,94 / 68,30) lisatud `cells.py` sobitusse; klaasi sisendi nihe D−4/D−5 keskpunktidest (dx −2,00, dy +2,50).
+
+### Kommitist `f37e300` eemaldatud read
+
+*Asukoht: rea „![veebikaamera-post-v3 Gridfinity jalad altpoolt](docs/photos/veebikaamera-post-v3-gridfin…“ järel.*
+
+    - Koostevaade Fusionis (24.10.26): MG 400 rakis + v3 post + hoidikute STL-id `slot-picker/layout.json` **pakutud** lahtrites (klaas D/E −3…−4, AtomS3 D/E −1…−2, oranž töökoht D/E +1…+2, väljund D/E +3…+4, kalibreerimiskast F-2) + XIAO kinnitus v5 J4 all. Hoidikud on mesh-kehad, värvid Fusioni omad, mitte prindi värvid. Paigutus ei ole kinnitatud (`docs/layout.md` TODO).
+
+*Asukoht: rea „![MG_400_gripper_attachment Fusionis](docs/photos/gripper-attachment-fusion.jpg)“ järel.*
+
+- `camera-mounts/src/xiao-square-mount-v2.f3d`, `camera-mounts/stl/xiao-square-mount-v2.stl`, `camera-mounts/3mf/xiao-square-mount-v2.3mf` - XIAO ESP32S3 Sense tööriistakaamera kinnitus MG400 J4 mootori nelikandile (Fusioni dokument `xiao-square-mount-v2`, projekt `3d-printing`). U-klamber ümber nelikandi kaane M2,5 kruvidega, plaadi rennid, kaks prinditud kaabliklambrit (tõmbetõke). Prinditud 04.10.26 sobivuskatseks; füüsiline sobivus: `TODO — waiting for physical test`.
+
+*Asukoht: rea „- `camera-mounts/src/xiao-square-mount-v1.f3d`, `camera-mounts/stl/xiao-square-mount-v1.st…“ järel.*
+
+  ![xiao-square-mount-v2 Fusionis: kinnitus J4 nelikandil, XIAO plaat rennides](docs/photos/xiao-square-mount-v2-fusion.jpg)
+
+*Asukoht: rea „![xiao-square-mount-v1 Fusionis: kinnitus J4 nelikandil, XIAO plaat rennides](docs/photos/…“ järel.*
+
+  ![xiao-square-mount-v2 PrusaSliceris: tagurpidi, orgaanilised toed alusplaadilt](docs/photos/xiao-square-mount-v2-slicer.jpg)
+
+*Asukoht: rea „![xiao-square-mount-v1 PrusaSliceris: tagurpidi, orgaanilised toed alusplaadilt](docs/phot…“ järel.*
+
+- `camera-mounts/src/xiao-square-mount-v3.f3d` (+ `xiao-square-mount-v3-standalone.f3d` ilma roboti välisviiteta, avaneb ka teistel), `camera-mounts/stl/xiao-square-mount-v3.stl`, `camera-mounts/3mf/xiao-square-mount-v3.3mf` (ainult võrk, slaiseri seadeid pole) - v2 + kaameramooduli pesa (`camera_nest`), piiraja (`camera_stop`) ja objektiivi aken (`lens_window`, Ø6,5 mm); kõrgus 35,4 mm (v2: 25,6 mm). Kaamera mõõdud Seeedi mudelist (`cam_w 8`, `cam_h 5,8` mm), nihikuga mõõtmata. Kopeeritud 24.10.26 kaustast `fusion-tutor/people/Dennel04/models/` (Fusioni dokument `xiao-square-mount-v3`, 04.10.26). Printimata: prinditakse pärast v2 katset ja kaameramooduli mõõtmist.
+
+*Asukoht: rea „- `camera-mounts/src/xiao-square-mount-v2.f3d`, `camera-mounts/stl/xiao-square-mount-v2.st…“ järel.*
+
+- `camera-mounts/src/xiao-square-mount-v4.f3d` (ilma välisviiteta, avaneb igas arvutis), `camera-mounts/stl/xiao-square-mount-v4.stl`, `camera-mounts/3mf/xiao-square-mount-v4.3mf` (PrusaSliceri projekt: CORE One HF0.4, 0.20mm SPEED, Prusament PLA, orgaanilised toed alusplaadilt, tagurpidi; 55 min, 17,6 g) - v3 + kaamera fikseerimine tihvtiga: pesa seinad pikendatud +Y suunas 3 mm (`pin_ext`) ja neist läbi X-suunaline ava Ø1,85 (`pin_d` 1,75 + `pin_fit` 0,1), millesse käib tükk 1,75 mm PLA-filamenti. Kaamera on −Y piiraja ja tihvti vahel (mõlemal pool 0,23 mm). `ledge_z` 7,8 → 8,8 mm. Printimata.
+
+*Asukoht: rea „![xiao-square-mount-v2 Fusionis](docs/photos/xiao-square-mount-v2-fusion.png)“ järel.*
+
+  ![xiao-square-mount-v4 Fusionis altpoolt: kaamerapesa, objektiivi aken ja tihvti ava](docs/photos/xiao-square-mount-v4-fusion.png)
+
+  ![xiao-square-mount-v4 PrusaSliceris: tagurpidi, orgaanilised toed](docs/photos/xiao-square-mount-v4-slicer.png)
+
+- `camera-mounts/src/xiao-square-mount-v5.f3d` (ilma välisviiteta), `camera-mounts/stl/xiao-square-mount-v5.stl`, `camera-mounts/3mf/xiao-square-mount-v5.3mf` (PrusaSliceri projekt, samad seaded mis v4; 49 min, 16,2 g) - v4 ilma esimese kaabliklambrita: eemaldatud `cable_tab` (sild plaadi kohal Y 7,5…38) ning `cable_clip_body`/`cable_clip_cut` (klamber Y 32…38). Kasutaja: USB-C pistiku korpus ei mahtunud silla alla. Teine klamber (`cable_clip2`, +Y seinal) ja tihvtiga kaamerapesa jäävad. Printimata.
+
+  ![xiao-square-mount-v5 Fusionis: ilma esimese kaabliklambrita](docs/photos/xiao-square-mount-v5-fusion.png)
+
+  ![xiao-square-mount-v5 PrusaSliceris](docs/photos/xiao-square-mount-v5-slicer.png)
+
+*Asukoht: rea „**04.10.26 — Dennel04 (Denys) koos Claude'iga (Fusion MCP kaudu)**“ järel.*
+
+- Tegime: XIAO ESP32S3 Sense tööriistakaamera kinnitus MG400 J4 mootori nelikandile (robot Fusionis XREF-ina). v1: U-klamber ümber nelikandi kaane, kaane M2,5 kruvide avad süvistustega, plaadi rennid ja otsapiire, kaabliklamber pistiku taga. v1 printimata. v2: tõmbepaela sild eemaldatud, selle asemel teine kaabliklamber +Y seinal; kaabel läheb mööda seina roboti poole.
+
+*Asukoht: rea „- Otsused ja põhjendused: õppejõud lubas suuliselt kõigile kaamera kinnitada ükskõik kuhu,…“ järel.*
+
+- Failid ja versioonid: `camera-mounts/src/xiao-square-mount-v2.f3d`, `camera-mounts/stl/xiao-square-mount-v2.stl`, `camera-mounts/3mf/xiao-square-mount-v2.3mf` (PrusaSlicer projekt).
+
+*Asukoht: rea „- Prindil kontrollida: sobivus nelikandil, kas originaalkruvi ulatub läbi süvistuse põhja …“ järel.*
+
+  - Kaameramoodul ripub oma lindikaablil ega ole fikseeritud. v3-s on kaamerapesa (Fusionis `xiao-square-mount-v3`); prinditakse alles pärast v2 katset ja kaameramooduli nihikuga mõõtmist.
+
+*Asukoht: rea „**24.10.2026 — Fusioni failid ei avanenud meeskonnakaaslasel**“ järel.*
+
+* Probleem: `camera-mounts/src/xiao-square-mount-v2.f3d` ja `veebikaamera-post/src/veebikaamera-post-v2.f3d` sisaldavad välisviiteid (XREF) Denysi Fusioni pilvedokumentidele `mg400-solidworks_asm` ja `MG 400 rakis`. Ilma nende dokumentideta annab Fusion vea `New design cannot be created from a local file containing external references`. Sama kehtib `veebikaamera-post-v1.f3d` kohta.
+* Lahendus: lisatud kõrvale **`xiao-square-mount-v2-standalone.f3d`** ja **`veebikaamera-post-v2-standalone.f3d`** — samad detailid ilma roboti/laua viiteta (robot ja laud olid ainult proovimiseks; detailide geomeetria neist ei sõltu). Kontrollitud: avanevad kohalikust failist, kõik kehad alles; `Extrude4` (`webcam_post_upper`) oli juba originaalis maha surutud. Vanad failid jäävad alles.
+
+*Asukoht: rea „* Katse lisada robot ja laud faili sisse (break link) andis 8–12 MB faili, mille import ku…“ järel.*
+
+**24.10.2026 — XIAO kaamerakinnitus v4: kaamera kindel fikseerimine ja teisaldatav CAD**
+* Osalejad: meeskonnakaaslase ülesanne; töö tegi Claude Fusioni API kaudu (Denysi arvutis). Füüsilist katset ei tehtud.
+* Põhjus, miks v2/v3 `.f3d` ei avanenud: kontrollitud GitHubist alla laaditud failidega — Fusion annab vea `New design cannot be created from a local file containing external references`; välisviide on `mg400-solidworks_asm` (robot). STL avaneb, sest selles viiteid pole. Lahendus: viitega komponent kustutatakse enne eksporti (`-standalone.f3d`, v4.f3d). `.f3z` koos robotiga ei tehtud: roboti sisse kopeerimisel (break link) tekkis 8–12 MB fail, mille import kukutas Fusioni kokku. Robotiga kontrolliks ava `reference/MG 400 rakis.f3z` ja lisa detail sinna.
+* v3 analüüs (Seeedi XIAO ESP32S3 Sense mudel, kaamera mõõdud nihikuga mõõtmata): kaamera on X-is seinte vahel (0,15–0,25 mm), −Y-s piiraja vastas (0,24 mm), all põhjal (0,24 mm), üleval ~0,5 mm microSD pesani — aga **+Y suunas ei hoia teda miski** (pesa on avatud sinna, kust plaat sisse libiseb). Lisaks oli v3 pesa ülaserv (`ledge_z` 7,8) 0,23 mm XIAO B2B-pistiku ja microSD pesa sees (interferents 1,42 ja 0,04 mm³; tuutori märge "Interference 0" ei pidanud paika).
+* v4 muudatused: (1) tihvt: seinad +Y suunas +3 mm (ülaserv Z −9,0, et mitte microSD-d puudutada), X-suunaline ava Ø1,85 läbi mõlema seina, telg Y = `cam_y0 + cam_w + cam_clr + pin_d/2` (11,98), Z = kaamera kõrguse keskel (−11,3); tihvt = 1,75 mm PLA-filament, pikkus 21,4 mm. Tihvt ei kata objektiivi, lindikaablit ega USB-C-d. (2) `ledge_z` 8,8: pistikuni 0,77 mm, microSD-ni 0,3 mm; seinad hoiavad kaamerat 5,4 mm ulatuses tema 5,76 mm kõrgusest. Kinnitus J4 nelikandile, plaadi rennid ja kaabliklambrid muutmata.
+* Kontroll Fusionis: interferents XIAO-ga 0 (v3: 2 kohta); plaadi väljatõmbamine renni pidi 0–18 mm ilma kokkupuuteta; alates 20 mm puudutab USB-otsa ümbris kaablihoidiku ala (Y 32–38) — sama v3-s ja v2-s, v2 pandi füüsiliselt kokku. Robotimudeli piirikasti (x ≥ −22,0) ja pesa (x ≤ −26,8) vahe ≥ 4,8 mm. Imporditud v4.f3d: ajajoon terve, parameetrid alles. Madalaim punkt Z −15,4 nelikandi põhjast (v3-ga sama).
+* Kokkupanek: plaat koos kaameraga renni pidi sisse → tihvt läbi seinte. Eemaldamine: tihvt välja lükata teise filamenditükiga, plaat välja.
+* Füüsiliselt kontrollida (TODO — waiting for physical test): kaameramooduli mõõdud nihikuga (`cam_w`, `cam_h`, `cam_y0`) ja tegelik asend lindikaabli otsas; kas 1,75 mm filament läheb Ø1,85 avasse ja püsib hõõrdega (horisontaalne ava võib tulla kitsam — vajadusel puurida 1,8–1,9 mm või muuta `pin_fit`); tugede puudumine tihvti avas; kaamera kordub samasse asendisse (eemaldada/panna tagasi, võrrelda kaadreid); vahe iminapani (tööriistahoidiku mõõdud `measurements.md`-s on TODO); PLA soojenemine mooduli juures.
+* Failid: `camera-mounts/src|stl|3mf/xiao-square-mount-v4.*`, `docs/photos/xiao-square-mount-v4-fusion.png`, `docs/photos/xiao-square-mount-v4-slicer.png`. v2 ja v3 failid muutmata.
+
+**24.10.2026 — XIAO kaamerakinnitus v5: esimene kaabliklamber eemaldatud**
+* Osalejad: Denys vaatas v4 Fusionis üle; muudatuse tegi Claude Fusioni API kaudu. Füüsilist katset ei tehtud.
+* Probleem: esimene kaabliklamber (sild `cable_tab` + klamber `cable_clip_body`/`cable_clip_cut`) on USB-C pesale liiga lähedal; USB-C pistiku korpus on suurem kui silla all olev ruum.
+* Lahendus: kolm fiitšerit ja nende visandid kustutatud. Tõmbetõkkeks jääb teine klamber `cable_clip2` +Y seinal. Maht 14 500,6 → 13 584,8 mm³.
+* Kontroll Fusionis: interferents XIAO-ga 0; plaadi väljatõmbamine renni pidi +Y suunas 0–44 mm ilma ühegi kokkupuuteta (v4-s puudutas plaat silda alates 20 mm-st). Imporditud v5.f3d: ajajoon terve, välisviiteid pole.
+* Füüsiliselt kontrollida (TODO — waiting for physical test): USB-C pistik koos kaabliga mahub; kaabel püsib ainult teises klambris ja ei tõmba pistikut lahti J4 pööramisel; kõik v4 kontrollid (kaamera mõõdud, tihvti istuvus, vahe iminapani).
+* Failid: `camera-mounts/src|stl|3mf/xiao-square-mount-v5.*`, `docs/photos/xiao-square-mount-v5-fusion.png`, `docs/photos/xiao-square-mount-v5-slicer.png`. v2–v4 muutmata.
+
+*Asukoht: rea „* TODO — waiting for physical test: napa läbimõõt, nihe J4 teljest ja pikkus nihikuga; kal…“ järel.*
+
+* XIAO kaamerakinnitus v5: esimene testprint käivitatud (Nikita).
+
+### Kommitist `b13f5c1` eemaldatud read
+
+*Asukoht: rea „- [ ] USB UHD veebikaamera jäik post; mõõdetud pildikõikumine roboti liikumise ajal.“ järel.*
+
+  - 23.10.26 prototüüp v1 (CAD, printimata): `veebikaamera-post/src/veebikaamera-post-v1.f3d`, STL-id `veebikaamera-post-v1-alumine.stl` ja `veebikaamera-post-v1-ulemine.stl`.
+    - Kaamera: Verbatim AWC-03 (49580), andmelehelt 106 × 55 × 42,5 mm, 129 g, vaatenurk 120° diagonaalis (≈113° × 81° 16:9 juures), klambris ¼" statiivikeere, kaabel micro-USB → USB-A 1,5 m. Mõõdud nihikuga: TODO.
+    - Koht: 2 × 1 Gridfinity alus ruutudes G-5 + G-4 (ülesanne soovitab nurgaruute); post aluse J1-st kõige kaugemas nurgas, r ≈ 442 mm (MG400 ulatus 440 mm). Jalad samad mis `glass-input-holder-v2`.
+    - Kõrgus arvutatud: objektiiv ~450 mm roboti talla tasapinnast, siis on kogu ruudustik ja robot ~70 % kaadris (arvutuses kaamera pööre ~74° üle laua ja kalle ~62° alla, kaamera enda liigendiga). Minimaalne arvutatud kõrgus 325 mm (kaader täis, varu ei ole). Tuleb kontrollida kaamera käes hoides.
+    - Jäikus kujust: õõnes 30 × 30 mm toru, sein 3 mm, kaks ribi aluse peal (60 mm, kõrgem ei tohi käe teel olla), kaabel saab käia toru sees.
+    - Kaks tükki printeri 270 mm Z jaoks: alumine 207 mm (alus + toru kuni 210 mm), ülemine 220 mm (30 mm tapp 0,2 mm lõtkuga + toru + 40 × 40 mm plaat ¼" avaga Ø6,6 mm). Ülemine prinditakse plaat all.
+    - Kontrollimata: käe suurim kõrgus ja kas käsi ulatub kaamerani (kaamera korpus ulatub postist ~50 mm roboti poole); liitekoha loks; pildi värisemine. TODO — waiting for physical test.
+
+    ![veebikaamera-post-v1 Fusionis koos MG 400 rakisega](docs/photos/veebikaamera-post-v1-fusion.png)
+  - 23.10.26 parandus: **v1 on vale** — käsi ulatub postini. MG400 Hardware User Guide V1.4 (joonised 2.2 ja 2.3): 440 mm on flantsi (J4 telje) ulatus, mitte kogu käe oma; J2 on 224 mm roboti tallast, J4 mootori korpus ulatub flantsist ~80 mm üles ja ~25 mm külgedele, tööriist ripub all. v1 posti lähim külg oli 422 mm J1-st ja kaamera ~404 mm kõrgusel 425–480 mm, kuhu käsi ulatub. Ülesanne nõuab: *"käsi ei ulatu temani"*, *"Kaamera ja kõik, mis teda hoiab, on sellest väljas"*.
+  - 23.10.26 prototüüp v2 (CAD, printimata): `veebikaamera-post/src/veebikaamera-post-v2.f3d`, `stl/veebikaamera-post-v2-alumine.stl`, `stl/veebikaamera-post-v2-ulemine.stl`.
+    - Käe ümbris (joonisest digitaliseeritud, varuga): flants + J4 korpus (±25 mm, +80 mm) + tööriist (raadius 75 mm, 70 mm allapoole). Suurim horisontaalne ulatus ~515 mm kõrgusel 40–200 mm; käe kõrgeim punkt ~490 mm roboti tallast.
+    - Post on 555 mm kaugusel J1-st ruudustiku nurga (G-5) kaudu mineval kiirel, väljaspool ruudustikku. Kontroll Fusionis (iga võrgu punkt vs ümbris): post ja kaamera on ümbrisest vähemalt **30 mm** väljas. Ümbrisesse jäävad ainult alus ja konsool kuni 37 mm kõrguseni — madalad nagu iga hoidik (reegel: üle 60 mm osad ei ole käe teel).
+    - Alus 2 × 2 Gridfinity ruutudes G-5, G-4, F-5, F-4 (kordustäpsus tuleb jalgadest, samad jalad mis `glass-input-holder-v2`), sealt madal õõnes konsool (30 mm kõrge, all lahti — USB kaabel käib sees) postini.
+    - Kaamera on roboti kohal: plaat 470 mm, kaamera korpus ~495–550 mm, objektiiv ~522 mm (käsi ei tõuse kõrgemale kui ~490 mm). Arvutatud: kogu ruudustik + robot ~93 % kaadris, kaamera pööre ~41° ja kalle ~42° alla.
+    - Jäikus: õõnes 30 × 30 mm toru (sein 3 mm), kaks 100 mm ribi posti välisküljel (roboti poole ribi ega kõrget seina ei ole), lai 2 × 2 alus.
+    - Kaks tükki: alumine 242 mm (210,7 × 170,4 mm), ülemine 260 mm (40 × 40 mm) — printeri Z 270 mm, tükk ≤ 250 × 250 mm. Liide: 35 mm tapp (0,2 mm lõtk) + M3 risttihvt (Ø3,3) loksu vastu. Üle 150 mm tükil brim.
+    - Kaabel: aken ülemise toru välisküljel plaadi all (USB sisse ja käsi ¼" kruvi jaoks), kaabel toru ja konsooli sees alla.
+    - Kontrollimata: kas laud ulatub ruudustiku nurgast välja (konsool on õhus, laud ei pea all olema); pildi värisemine; reaalne kaamera mõõt. Enne esimest jooksu sõita käsi aeglaselt postile kõige lähemale (ohutusreegel). TODO — waiting for physical test.
+
+    ![veebikaamera-post-v2 Fusionis](docs/photos/veebikaamera-post-v2-fusion.png)
+
+    ![veebikaamera-post-v2 ülalt](docs/photos/veebikaamera-post-v2-top.png)
+  - 23.10.26 v2 täiendus — kaamera kinnitus: Verbatim AWC-03 klamber koosneb kahest osast, mis on liigendiga (kruvid reguleerivad pingust) ühendatud. Alumine osa mõõdetud nihikuga: **42,04 × 48,5 × 10,88 mm**. Posti otsas on selle jaoks pesa: 42,84 × 49,30 mm (lõtk 0,4 mm külje kohta, Lab 1 vahemik 0,2–0,4 mm), sügavus 7 mm (klamber jääb 3,9 mm välja, et sõrmedega kätte saada), seinad kolmel küljel, liigendi pool lahti ja pööratud laua poole (41°), et kaamera saaks alla kalduda. Põhjas 20 mm pilu ¼" kruvile (keerme täpne koht klambril mõõtmata); kruviga on kaamera jäigalt kinni, ilma kruvita istub klamber lihtsalt pesas. Ülemine tükk nüüd 267 mm (printeri Z 270 mm). Kontroll ümbrise vastu: varu endiselt ≥ 30 mm.
+
+    ![veebikaamera-post-v2 klambri pesa](docs/photos/veebikaamera-post-v2-klamber.png)
+  - 24.10.26 v3 (CAD, printimata): `veebikaamera-post/src/veebikaamera-post-v3.f3d` (+ `-standalone.f3d`), STL-id `veebikaamera-post-v3-alumine.stl`, `-ulemine.stl`, `-jalg.stl`.
+    - Probleem v2-s: post ja konsool rippusid ruudustiku nurgast väljas õhus (post ~85 mm X ja ~42 mm Y ruudustiku servast väljas), kogu kaal (kaamera 129 g ~500 mm kõrgusel + toru) koormas ainult 2 × 2 aluse Gridfinity jalgu — kang oleks aluse ruudustikust välja kangutanud. Postit ruudustikule tuua ei saa: ruudustiku kaugeim nurk on J1-st 463 mm, käsi koos tööriistaga ulatub 40–200 mm kõrgusel ~515 mm-ni.
+    - Lahendus: eraldi **jalg** posti all lauani. Laua pind = ruudustiku alumine serv (Denys: ruudustik lõpeb laual), mudelis z −16,7 mm. Jalg on 30 × 30 mm õõnes toru, all 45 × 45 × 3 mm tald, üleval 26,5 mm tapp (lõtk 0,2 mm külje kohta), mis läheb altpoolt posti toru sisse kuni konsooli laeni. Jalg on `leg_gap = 0,3 mm` lühem, et Gridfinity jalad istuksid alati pesas. Jalg on eraldi detail, sest koos alumise tükiga oleks see üle printeri 270 mm Z. Kõrgus 50,2 mm, maht 20,1 cm³.
+    - **Kaabliklambrid** posti −X küljel (robotist eemal), 9 mm keskjoonest ribi ja akna kõrval: sama profiil mis XIAO kinnituse `cable_clip2` (rõngas Ø4 kaablile, sein 1,6 mm, avaus 0,75 × kaabel väljapoole, rõngas 0,6 mm seina sees), aga telg püsti ja üleval/all 45° kalded, et klamber prindiks ilma tugedeta kummaski asendis. Esialgu kuus klambrit (alumisel z 60/130/195 mm, ülemisel 275/345/405 mm); Denysi järgi liiga palju, nüüd üks klamber tüki kohta: alumisel z 130 mm, ülemisel z 380 mm. Kaabel läheb nüüd väljast; aken plaadi all jääb ¼" kruvi jaoks.
+    - Kontroll Fusionis: posti osade omavahelist interferentsi ei ole; klambri lõige kontrollitud punktidega (ava ja pilu tühjad, rõngas täis).
+    - Kontrollimata (TODO — waiting for physical test): laua kõrgus posti nurga all nihikuga (`table_z`); kaabli tegelik läbimõõt (`cam_cable_d` = 4 mm, XIAO kaabli järgi); kas kaabel klõpsab klambrisse; jala tapi istuvus; pildi värisemine. Käe kõrguse kontroll käega enne printimist (vt ülal) jääb.
+
+    ![veebikaamera-post-v3 Fusionis](docs/photos/veebikaamera-post-v3-fusion.png)
+
+    ![veebikaamera-post-v3 jalg ja kaabliklambrid](docs/photos/veebikaamera-post-v3-jalg.png)
+    - 24.10.26 Gridfinity jalad ümber tehtud (enne printimist). Denys: `valjundhoidik-v1` liigub ruudustikus edasi-tagasi ega lähe päris lõpuni. Põhjus CAD-is (mõõdetud `MG 400 rakis` B-Rep pindadest, `grid_pos_0`, lahter A+1): pesa on Gridfinity profiil — 45° 2,15 mm (laius 41,98 → 37,68), vertikaalne 1,8 mm (37,68, R 1,84), 45° 0,7 mm (→ 36,28, R 1,14); kõik nurgakaared ühe keskpunktiga 17 mm lahtri keskelt. Meie jalg oli sirge 35,78 mm prisma (R 1,5), mis puudutas pesa ainult kõige kitsamas kohas; vertikaalosas oli lõtk **0,95 mm külje kohta**, midagi ei tsentreerinud. Uus jalg = pesa profiil, iga pind nihutatud sissepoole `foot_clearance = 0,25 mm` (Gridfinity standard), nurkade keskpunkt sama: 45° 2,15 / 1,8 / 45° 0,7 mm. Kontroll Fusionis: jala poollaius 20,66 / 18,59 / 17,96 mm vs pesa 20,91 / 18,84 / 18,21 mm (täpselt 0,25), interferents 0, alus toetub ruudustiku harjadele z 7,28. Vanad jalad (`Extrude2`, `Chamfer1`) maha surutud, mitte kustutatud. Miks `valjundhoidik-v1` lõpuni ei lähe, ei ole füüsiliselt tõestatud (kontrollida tugede jääke aluse all, esimese kihi laienemist, kus kinni jääb): TODO.
+    - 24.10.26 parandus samal päeval: ülesanne nõuab **standardset** Gridfinity jalga (4,75 mm, „võta generaatorist, ära joonista silma järgi“). Võrdlus generaatoriga gridfinity-rebuilt-openscad (`BASE_PROFILE`: 45° 0,8 / 1,8 / 45° 2,15 mm, 35,6 → 37,2 → 41,5 mm, R 0,8 → 1,6 → 3,75): meie „pesa − 0,25“ jalg erines (alumine faas 0,7, kõrgus 4,65). Posti jalad on nüüd standardsed (`gf_std_foot1–3`, `gf_fit_adjust = 0`; eelmised `gf_foot_step*` maha surutud). 2 × 2 alus toetub oma sisemistele harjadele (z 7,28), külglõtk 0,24 mm nagu standardis; interferents ruudustikuga 0.
+
+    - 24.10.26 jala parandus: Denys märkas, et posti kolmnurksed ribid (`Extrude6` −X, `Extrude7` −Y; 30 mm välja, 4 mm paksud, z 7,3…107) lõppesid ruudustiku kõrgusel õhus, 24 mm laua kohal, ja jala 45 × 45 mm tald ei ulatunud nende alla — ribid ei kandnud midagi. Nüüd jätkuvad samad ribid jalal (sama tasand ja paksus, 30 mm välja) talla pealt kuni z 7,28; posti ribid toetuvad neile (kaugus 0, interferents 0). Tald kasvas −X/−Y suunas ribide otsteni (67,5 × 67,5 mm, `leg_rib_pad_margin = 0`): see on külg, kuhu post ruudustikust eemale kalduks. Jala maht 20,1 → 32,7 cm³.
+    ![veebikaamera-post-v3 Gridfinity jalad altpoolt](docs/photos/veebikaamera-post-v3-gridfinity-jalad.png)
+
+    - Koostevaade Fusionis (24.10.26): MG 400 rakis + v3 post + hoidikute STL-id `slot-picker/layout.json` **pakutud** lahtrites (klaas D/E −3…−4, AtomS3 D/E −1…−2, oranž töökoht D/E +1…+2, väljund D/E +3…+4, kalibreerimiskast F-2) + XIAO kinnitus v2 J4 all. Hoidikud on mesh-kehad, värvid Fusioni omad, mitte prindi värvid. Paigutus ei ole kinnitatud (`docs/layout.md` TODO).
+
+    ![Töölaud v3: üldvaade](docs/photos/lab2-tooala-v3-iso.png)
+
+    ![Töölaud v3: hoidikud ruudustikus](docs/photos/lab2-tooala-v3-hoidikud.png)
+
+    ![Töölaud v3: ülalt](docs/photos/lab2-tooala-v3-ulalt.png)
+  - 24.10.26 v4 (CAD, printimata): posti asemel rakise toru. Denys nihutas laual L-nurgad nii, et mõlema pika toru esiots ulatub ~50 mm üle laua serva (mõõdetud silma järgi). Prinditakse ainult kaks osa, vertikaalne toru on sama 16 mm toru: `veebikaamera-post/src/veebikaamera-post-v4.f3d`, `stl/veebikaamera-post-v4-nurk.stl`, `stl/veebikaamera-post-v4-ulemine.stl`.
+    - Nurk: horisontaalne pesa 30 mm toru otsa peale (ava 16,4 mm, tilgakujuline — prinditakse ilma tugedeta), all pilu + M3 kruvi ja mutter (mutripesa 6,5 mm), et nurk toru ümber ei pöörduks; vertikaalne pesa 45 mm. Toru telg J1-st 608 mm (v2 post 555 mm, käe ümbris ~515 mm).
+    - Ülemine: pesa 30 mm toru otsa peale + v2 klambripesa (42,84 × 49,30, sügavus 7, ¼" pilu pesa ees). Pesa on klambripesa tagaosa all, et ¼" kruvi pääseks alt ligi. Pööratakse toru peal käsitsi (arvutuslik suund ruudustiku keskele 18°).
+    - Vertikaalse toru pikkus **490 mm** (pesa põhi z −25,3 kuni plaadi alumine pind z 465; plaat 470 mm nagu v2). Kõrgus tuleb enne lõikamist kaamerat käes hoides kinnitada.
+    - Fusionis interferents torude ja laua servaga 0. Print (Prusa CORE One HF0.4, 0.20mm SPEED, Prusament PLA, 4 perimeetrit, 30 %): nurk püsti ilma tugedeta 50 min / 30,6 g; ülemine tagurpidi (klambripesa all), orgaanilised toed alusplaadilt ainult pesa põhja alla, 1 h 9 min / 27,1 g.
+    - Kontrollimata: toru tegelik välisläbimõõt (rakise kirjelduse 16 mm, nihikuga mõõtmata), toru väljaulatuvus, sobivus. TODO — waiting for physical test.
+
+    ![veebikaamera-post-v4 nurk altpoolt](docs/photos/veebikaamera-post-v4-under.png)
+
+    ![veebikaamera-post-v4 ülemine](docs/photos/veebikaamera-post-v4-top.png)
+
+*Asukoht: rea „* Järgmiseks: Z puudutus ruudustiku pinnal; kasti välja/tagasi kordustäpsus; iga pesa Z = …“ järel.*
+
+**24.10.2026 — Fusioni failid ei avanenud meeskonnakaaslasel**
+* Probleem: `veebikaamera-post/src/veebikaamera-post-v2.f3d` sisaldab välisviiteid (XREF) Denysi Fusioni pilvedokumentidele `mg400-solidworks_asm` ja `MG 400 rakis`. Ilma nende dokumentideta annab Fusion vea `New design cannot be created from a local file containing external references`. Sama kehtib `veebikaamera-post-v1.f3d` kohta.
+* Lahendus: lisatud kõrvale **`veebikaamera-post-v2-standalone.f3d`** — sama detail ilma roboti/laua viiteta (robot ja laud olid ainult proovimiseks; detailide geomeetria neist ei sõltu). Kontrollitud: avanevad kohalikust failist, kõik kehad alles; `Extrude4` (`webcam_post_upper`) oli juba originaalis maha surutud. Vanad failid jäävad alles.
+* Katse lisada robot ja laud faili sisse (break link) andis 8–12 MB faili, mille import kukutas Fusioni kokku — seda varianti ei kasutata. Robotiga kontrolliks: laadi laud `reference/MG 400 rakis.f3z` eraldi ja sisesta detail sinna.
+
+
+*Asukoht: rea „* Failid: `camera-mounts/src|stl|3mf/xiao-square-mount-v2.*`, `docs/photos/xiao-square-mou…“ järel.*
+
+**24.10.2026 — veebikaamera post v3: jalg lauani ja kaabliklambrid**
+* Osalejad: Denys leidis Fusionis, et post ripub ruudustikust väljas õhus ja kaabliklambrid puuduvad; muudatuse tegi Claude Fusioni API kaudu (v2 pilvedokumendile lisatud, pilve ei salvestatud). Füüsilist katset ei tehtud.
+* Esimene katse pani laua rakise jalgade alla (z −46,7); Denys parandas: laud on ruudustiku alumise serva kõrgusel (z −16,7). Jalg tehti ümber, jalal kaabliklambrit ei ole (24 mm toru on klambrile liiga lühike).
+* Kuus kaabliklambrit oli liiga palju (Denys) → üks klamber tüki kohta. Koostevaade kõigi hoidikutega ruudustikus lisatud.
+* Gridfinity pesa mõõdeti täpselt (B-Rep pinnad: tasapinnad, koonused, silindrid) ja posti jalad tehti pesa profiili järgi (lõtk 0,25 mm); sama päeva parandus: jalg standardseks (generaator). Teadmine ja tööriistad meeskonnale: `fusion-tutor/shared/knowledge/gridfinity-socket.md`, `fusion-tutor/shared/tools/fusion-geometry/`. Teised hoidikud (väljund, klaas, AtomS3, oranž) kasutavad veel sirget jalga — uued versioonid pärast jala testi.
+* Posti ribid rippusid õhus (Denys) → ribid jätkuvad jalal lauani, jala tald laiendatud ribide alla.
+* Tulemus ja TODO: vt kontrollnimekirja punkti „USB UHD veebikaamera jäik post“, v3. v1 ja v2 failid muutmata.
+

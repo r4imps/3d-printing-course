@@ -164,3 +164,46 @@ Allikas: Maksimi `Measurements.xlsx`, leht `Measurements`; täielik lahtrite ja 
 - Tööriistakaamera ligikaudne orientatsioon Excelis on 90° alla (`planned`, D47:E47). Mõõta kõrgus klaasi kohal ja kaugus töökohast (mm); kontrollida, et kogu 30 × 30 mm klaas ja Atom on kaadris. Kaamera USB-C ligipääs on konstruktsiooninõue (`planned`, D52:E52), mitte katsetulemus.
 - Olemasolev USB-kaadri tõend on README 23.10.26 sessioonis. Kaabli pikkus, kinnituspunktid, liikumistee ja J4 kontroll, kaamera mass ning kogu tööriista mass enne/pärast (g) jäävad: `TODO — waiting for physical test`.
 - Konkreetne mudelite ja trajektoori kontrollnimekiri: [`cad-measurement-review.md`](cad-measurement-review.md). Geomeetriat ega õpetatud robotipunkte selles sessioonis ei muudetud.
+
+## Taastatud tekst — 25.10.2026
+
+- 25.10.26 parandus (Raimo otsus): Denysi 25.10.2026 kommitid `8107cc9`, `b66a58f`, `b13f5c1` eemaldasid või asendasid allolevad read. Kursuse reegli „Midagi ei kustutata“ järgi on need siin sõna-sõnalt tagasi; ülal olev praegune tekst jääb kehtima ja on uuem. Vanad failid, millele read viitavad, on samuti taastatud.
+
+### Kommitist `8107cc9` eemaldatud read
+
+*Asukoht: rea „|---|---|---|---|---|“ järel.*
+
+| Klaasi sisend | `glass-input-holder-v1` | 2 × 2 | D−4, D−5, E−4, E−5 | 4 klaasi; **paigas**, õpetatud (vt allpool) |
+
+### Kommitist `b66a58f` eemaldatud read
+
+*Asukoht: rea „| Heade väljund | `valjundhoidik-v1` | 2 × 2 | D+4, D+5, E+4, E+5 | valmis detailid |“ järel.*
+
+| Kalibreerimishoidik | `gridfinity-calibration-v3` | 1 × 1 | F+2 | roboti kalibreerimine (24.10.26 mõõdeti C−2-s) |
+
+*Asukoht: rea „### Roboti sihtpunktid (ruut + nihe, R 33)“ järel.*
+
+Ruudu keskpunkt robotis = [`../calibration/cells.py`](../calibration/cells.py) (24.10.26 sobitus, sh C−2 kalibreerimiskastiga v3). Nihe = hoidiku `teach` slot pickeris.
+
+*Asukoht: rea „| Väljund | Valmis detail (`valjundhoidik-v1`, 2 × 2 lahtine kast) | | | |“ järel.*
+
+| Väljund | Praak (23.10.26 parandus: oranž `ready-parts-input-holder-v1`; varem `gridfinity-calibration-v1`) | | | |
+
+### Kommitist `b13f5c1` eemaldatud read
+
+*Asukoht: rea „| **E** | väljund | väljund | | | | Atom | Atom | | klaas | klaas |“ järel.*
+
+| **F** | | | | kalibr. | | Atom | Atom | | post | post |
+| **G** | | | | | | | | | post | post |
+
+*Asukoht: rea „| Kalibreerimishoidik | `gridfinity-calibration` | 1 × 1 | F+2 | roboti kalibreerimine (24…“ järel.*
+
+| Veebikaamera post | `veebikaamera-post` v3 kavand | 2 × 2 | F−4, F−5, G−4, G−5 | üldvaatekaamera; robot sinna ei sõida. Lõplik versioon ja asukoht: TODO |
+
+*Asukoht: rea „| Veebikaamera post | `veebikaamera-post-v1` | — | ruudustikust väljas | laua serval rakis…“ järel.*
+
+Kasutatud ruute 21 / 70. Järgmiste laborite moodulitele jäävad vabaks näiteks B ja C ±2 … ±5, D −3 … +3, E −3 ja E +1 … +3, F+1, F±3 (rida A on aluse lähedal ulatusega piiratud).
+
+*Asukoht: rea „- Hoidikud füüsiliselt uutesse ruutudesse; seejärel töökoha ja väljundi punktide õpetamine…“ järel.*
+
+- Veebikaamera posti lõplik versioon ja ruudud.
