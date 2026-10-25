@@ -119,6 +119,20 @@ def plan_glass(layout, glass, by_name):
             ("snap", f"r-g{glass}-output")]
 
 
+def next_round(path: Path):
+    """The first round in refit_test.csv that still has an empty template row, else one after the last
+    round. The page starts there, so a new session does not save round 2 as a second round 1."""
+    if not path.exists():
+        return 1
+    with path.open(newline="", encoding="utf-8") as f:
+        table = list(csv.DictReader(f))
+    rounds = sorted({int(r["round"]) for r in table if r["round"].strip().isdigit()})
+    for rnd in rounds:
+        if any(not any(r[k] for k in FIELDS) for r in table if r["round"] == str(rnd)):
+            return rnd
+    return rounds[-1] + 1 if rounds else 1
+
+
 def save_refit(path: Path, rnd: int, rows):
     """Write one round into refit_test.csv. An empty template row (round, glass) is filled in;
     a row that already has results is kept and the new result is appended below it."""

@@ -511,7 +511,8 @@ def make_handler(layout, seq, port):
             elif self.path == "/api/layout":
                 self._json(200, {"cells": table["cells"], "holders": layout["holders"], "types": layout["types"],
                                  "motion": layout["motion"], "cycle": layout["cycle"], "fields": cycle.fields(layout),
-                                 "letters": LETTERS, "numbers": NUMBERS})
+                                 "letters": LETTERS, "numbers": NUMBERS,
+                                 "refit_next_round": cycle.next_round(REFIT_CSV)})
             elif self.path == "/api/state":
                 try:
                     s = seq.robot.call("/status")
