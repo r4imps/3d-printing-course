@@ -633,7 +633,7 @@ async function load() {
   active = null;
   renderHolders(); renderTest(); paint();
 }
-api("/api/layout").then(l => { layout = l; buildGrid(); load(); poll(); });
+api("/api/layout").then(l => { layout = l; $("round").value = l.refit_next_round || 1; buildGrid(); load(); poll(); });
 </script>
 </body>
 </html>

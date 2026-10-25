@@ -1,10 +1,13 @@
 """Hub self-test: the simulated MG400, the joint jog maths and the hub HTTP API (Simulation mode only,
 nothing is sent to a real robot). Run: ../../sim/.venv/Scripts/python -m unittest -v test_hub"""
 import base64
+import csv
 import json
 import math
+import shutil
 import socket
 import sys
+import tempfile
 import threading
 import time
 import unittest
@@ -126,6 +129,57 @@ class GlassTrackingTest(unittest.TestCase):
         self.assertEqual(live.glasses["glass 2"], [300.0, -40.0, 10.0])
 
 
+class RefitCsvTest(unittest.TestCase):
+    """cycle.save_refit / next_round on a copy of the real docs/refit_test.csv."""
+
+    @classmethod
+    def setUpClass(cls):
+        sys.path.insert(0, str(HUB.parent / "lab2" / "slot-picker"))
+        import cycle
+        cls.cycle = cycle
+        cls.real = HUB.parent / "lab2" / "docs" / "refit_test.csv"
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.path = Path(self.tmp.name) / "refit_test.csv"
+        shutil.copyfile(self.real, self.path)
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def lines(self):
+        return self.path.read_text(encoding="utf-8").splitlines()
+
+    def row(self, glass, ok=True, notes=""):
+        return {"glass": glass, "notes": notes, **{f: ok for f in self.cycle.FIELDS}}
+
+    def test_round_1_is_kept_and_round_2_fills_the_template(self):
+        before = self.lines()
+        self.assertEqual(self.cycle.next_round(self.path), 2)
+        self.cycle.save_refit(self.path, 2, [self.row(g) for g in (1, 2, 3, 4)])
+        after = self.lines()
+        self.assertEqual(after[:5], before[:5])          # header and round 1, byte for byte
+        self.assertEqual(len(after), len(before))       # filled in place, no extra rows
+        self.assertTrue(all(ln.startswith("2,") and ",yes,yes,yes,yes," in ln for ln in after[5:9]))
+        self.assertEqual(after[9:], before[9:])
+        self.assertEqual(self.cycle.next_round(self.path), 3)
+
+    def test_saving_a_round_again_appends_instead_of_overwriting(self):
+        self.cycle.save_refit(self.path, 2, [self.row(1, notes="first")])
+        self.cycle.save_refit(self.path, 2, [self.row(1, ok=False, notes="second")])
+        with self.path.open(newline="", encoding="utf-8") as f:
+            r2g1 = [r for r in csv.DictReader(f) if r["round"] == "2" and r["glass_id"] == "1"]
+        self.assertEqual([r["notes"] for r in r2g1], ["first", "second"])
+        self.assertEqual(r2g1[1]["placed_at_output"], "no")
+
+    def test_partly_saved_round_stays_the_next_round(self):
+        # glass 1 saved, page reloaded: glasses 2-4 still belong to round 2
+        self.cycle.save_refit(self.path, 2, [self.row(1)])
+        self.assertEqual(self.cycle.next_round(self.path), 2)
+        self.cycle.save_refit(self.path, 2, [self.row(g) for g in (2, 3, 4)])
+        self.assertEqual(self.cycle.next_round(self.path), 3)
+
+
 class HubApiTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -201,6 +255,37 @@ class HubApiTest(unittest.TestCase):
         self.assertIn("cells", lay)
         st = self.req("/api/state")
         self.assertEqual(st["robot"]["mode_name"], "ENABLED")
+
+    def test_refit_round_2_runs_and_saves_without_reteaching(self):
+        # a full round on the simulation with the taught points as they are, saved into a copy of the CSV
+        sp = sys.modules["slot_picker"]
+        real_csv = sp.REFIT_CSV
+        with tempfile.TemporaryDirectory() as tmp:
+            sp.REFIT_CSV = Path(tmp) / "refit_test.csv"
+            shutil.copyfile(real_csv, sp.REFIT_CSV)
+            try:
+                lay = self.req("/api/layout")
+                self.assertEqual(lay["refit_next_round"], 2)
+                self.req("/hub/arm", {"armed": True})
+                reply = self.req("/api/cycle/run", {"glasses": [1, 2, 3, 4], "round": lay["refit_next_round"]})
+                self.assertTrue(reply["ok"], reply)
+                t0 = time.time()
+                while self.req("/api/state")["seq"]["busy"]:
+                    self.assertLess(time.time() - t0, 240, "simulated round did not finish")
+                    time.sleep(0.2)
+                seq = self.req("/api/state")["seq"]
+                self.assertIsNone(seq["error"])
+                results = seq["cycle"]["results"]
+                self.assertTrue(all(all(r.values()) for r in results.values()), results)
+                rows = [{"glass": int(g), "notes": "sim", **r} for g, r in results.items()]
+                self.assertTrue(self.req("/api/refit", {"round": 2, "rows": rows})["ok"])
+                self.assertEqual(self.req("/api/layout")["refit_next_round"], 3)
+                with sp.REFIT_CSV.open(newline="", encoding="utf-8") as f:
+                    saved = list(csv.DictReader(f))
+                self.assertEqual(len(saved), 20)
+                self.assertTrue(all(r["picked_from_input"] == "yes" for r in saved if r["round"] in ("1", "2")))
+            finally:
+                sp.REFIT_CSV = real_csv
 
     def test_mode_switch(self):
         self.assertTrue(self.req("/hub/mode", {"mode": "real"})["ok"])
