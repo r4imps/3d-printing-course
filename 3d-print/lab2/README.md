@@ -79,6 +79,7 @@ Wi-Fi füüsiline toimimine ja station PC võrgust ligipääs, kaablite marsruut
   - 13.11.26: märgitud tehtuks. Kõigil üheksal [`docs/bom.md`](docs/bom.md) real on veerg „Mille jaoks ja miks seda vaja on“ täidetud. Kogused ja olemasolu ootavad meeskonna kinnitust; seda punkt ei nõua.
 - [ ] Iga prindi lähtefail, STL ja 3MF on versioonitud.
   - 25.10.26 kontroll (prinditud detailid): `atoms3-input-holder-v1`, `ready-parts-input-holder-v1`, `valjundhoidik-v1`, `xiao-square-mount-v1` ja `-v2` — f3d, STL, 3MF olemas. `glass-input-holder` ja `gridfinity-calibration` — failid olemas, kuid versiooninumbrita (v3 nimetati 25.10.26 ümber, v1/v2 eemaldati kaustast; alles git-ajaloos). `veebikaamera-post-v1` — f3d ja kaks STL-i, **3MF puudub** (nurk prinditud 25.10.26); ülemise osa viilutatud fail on ainult `fusion-tutor/people/Dennel04/models/`. `valjundhoidik-v1` f3d/STL kirjutati 23.10.26 üle (jala parandus, kommit `175b000`) ilma uue versiooninimeta.
+  - 13.11.26 TODO (Denys): puudub `gripper-attachment/3mf/mg400-gripper-attachment-v1.3mf` — f3d ja STL on olemas, 3MF kaust on tühi (`.gitkeep`). PrusaSlicer'i kuvatõmmis on kommitis `a28bb46` ([`docs/photos/gripper-attachment-fusion.jpg`](docs/photos/gripper-attachment-fusion.jpg)); palun salvesta sama projekt 3MF-ina sinna kausta. Veebikaamera nurga 3MF (`veebikaamera-post/3mf/veebikaamera-post-v1-nurk.3mf`) on harus `lab2-slot-picker-rounds-2026-11-13`. Pärast neid kahte saab punkti märkida.
 - [ ] Arenduspäevik täidetud; esitamisel lisatud tag `3d-print-lab2`.
 
 ## Füüsilise töö fototõendid — 24.10.2026
