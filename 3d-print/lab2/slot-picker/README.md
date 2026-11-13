@@ -80,6 +80,8 @@ Test-vahekaardil Jog-nuppude all. Kogub andmeid, millega hiljem häälestada puu
 
 Kaamera või Atomi puudumine ei peata sondeerimist (tühi veerg / `no frame: …`). Ühe jooksu kaadrid ~150 KB tükk; `probes/` ei ole gitignore'is, et head jooksud saaks commitida. Testitud 24.10.26 simuleeritud roboti, kaamera ja Atomiga (sammud, vaakumi hüpe CSV-s, STOP, vigased sisendid); päris robotiga: TODO — waiting for physical test.
 
+13.11.26: [`probe_analyze.py`](probe_analyze.py) loeb probe-jooksu ja otsib puudutust kolmest signaalist: napa kummiserva muutus tööriistakaamera pildil (napp on kaamera suhtes paigal, seega muutus = deformatsioon), vaakum ja roboti mahajäämus sihtpunktist. Kirjutab jooksu kausta `analysis.csv`, `analysis.png`, `cup_strip.jpg` ja `roi_check.jpg`. Käivitus: `..\..\sim\.venv\Scripts\python probe_analyze.py probes\<jooks>` või `--all`. Robotit ei liiguta. Päris puudutusega pole veel katsetatud; piirid häälestatakse esimeste päris jooksude järgi.
+
 Kasulikud esimesed jooksud: Z ↓ ruudustiku pinnale (ilma ja koos imemisega), Z ↓ klaasile sisendhoidikus imemisega, ning G-1 kalibreerimiskastis kõik neli seina 0,5 mm sammuga.
 
 ## Seaded — `layout.json`
